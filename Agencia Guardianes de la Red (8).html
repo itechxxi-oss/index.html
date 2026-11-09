@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agencia Guardianes de la Red</title>
+<style>
+:root{--bg:#f3f9fc;--surface:#ffffff;--text:#0b2233;--muted:#4a6275;--accent:#0198cd;--accent-ink:#ffffff;--border:#d3e6f0;--hero-a:#06324a;--hero-b:#0198cd;--hero-ink:#ffffff;--bar:#ffffff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07151f;--surface:#0e2433;--text:#e6f3fa;--muted:#9ab6c7;--accent:#3cc3f0;--accent-ink:#04202e;--border:#1d3b4f;--hero-a:#031a28;--hero-b:#0b5f80;--bar:#0b1d2a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#07151f;--surface:#0e2433;--text:#e6f3fa;--muted:#9ab6c7;--accent:#3cc3f0;--accent-ink:#04202e;--border:#1d3b4f;--hero-a:#031a28;--hero-b:#0b5f80;--bar:#0b1d2a;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bar);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bar);border-bottom:1px solid var(--border)}
+.bar{max-width:1000px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px}
+.logo{font-weight:800;letter-spacing:.02em;white-space:nowrap;color:var(--accent);text-decoration:none}
+nav{display:flex;gap:4px;overflow-x:auto;margin-left:auto}
+nav a{color:var(--text);text-decoration:none;padding:6px 12px;border-radius:999px;font-size:.92rem;white-space:nowrap}
+nav a:hover{background:var(--accent);color:var(--accent-ink)}
+.hero{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));color:var(--hero-ink);text-align:center;padding:64px 20px}
+.hero h1{margin:0 0 8px;font-size:clamp(1.8rem,5vw,3rem);line-height:1.15}
+.hero p{max-width:640px;margin:0 auto 22px;opacity:.92}
+.btn{display:inline-block;background:var(--hero-ink);color:#06324a;padding:10px 22px;border-radius:999px;font-weight:700;text-decoration:none}
+section{max-width:1000px;margin:0 auto;padding:44px 16px}
+h2{margin:0 0 16px;font-size:1.6rem}
+h2::after{content:"";display:block;width:56px;height:4px;border-radius:2px;background:var(--accent);margin-top:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:2px 10px;margin-top:10px}
+.big{font-size:2rem;line-height:1;margin-bottom:8px}
+.path{list-style:none;margin:0;padding:0;display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
+.path li{flex:0 0 120px;text-align:center;background:var(--surface);border:2px solid var(--accent);border-radius:14px;padding:12px 6px;font-size:.85rem}
+.path li b{display:block;font-size:1.3rem;color:var(--accent)}
+.path li.fin{background:var(--accent);color:var(--accent-ink)}
+.path li.fin b{color:var(--accent-ink)}
+.rank{text-align:center}
+.rank strong{display:block;font-size:1.2rem;color:var(--accent)}
+footer{border-top:1px solid var(--border);background:var(--bar);text-align:center;padding:26px 16px;color:var(--muted);font-size:.9rem}
+footer b{color:var(--text)}
+.av{display:flex;flex-wrap:wrap;gap:24px;align-items:center}.av svg{background:var(--bg);border:1px solid var(--border);border-radius:14px}.ctl{flex:1;min-width:230px}.ctl h3{margin:12px 0 6px;font-size:.9rem;color:var(--muted)}.ctl h3:first-child{margin-top:0}.opts{display:flex;gap:8px;flex-wrap:wrap}.sw{width:32px;height:32px;border-radius:50%;border:3px solid var(--border);cursor:pointer;padding:0}.sw.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}.pill{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:999px;padding:6px 14px;cursor:pointer;font:inherit;font-size:.9rem}.pill.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}input,select,textarea{font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:8px 10px;width:100%}.frm{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));align-items:end;margin-bottom:14px}.go{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:9px 16px;font:inherit;font-weight:700;cursor:pointer}.tw{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);font-size:.92rem}th{color:var(--muted)}.ent{border-left:4px solid var(--accent);padding:6px 12px;margin-top:10px;background:var(--surface);border-radius:0 10px 10px 0}.ent small{color:var(--muted)}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}.tile{position:relative;color:#fff;padding:18px 16px 16px;min-height:210px;display:flex;flex-direction:column;gap:6px;background:linear-gradient(145deg,var(--c1),var(--c2));transition:transform .2s}.tile:hover{transform:translateY(-4px)}.tile svg{width:68px;height:68px;margin-bottom:2px;color:#fff}.tile .n{position:absolute;top:8px;right:14px;font-size:2.2rem;font-weight:800;opacity:.35}.tile h3{margin:0;font-size:1.05rem}.tile p{margin:0;font-size:.85rem;opacity:.92}.tile em{margin-top:auto;font-style:normal;font-size:.75rem;font-weight:700;background:rgba(255,255,255,.22);border-radius:999px;padding:3px 10px;align-self:flex-start}.s1{border-radius:22px}.s2{clip-path:polygon(0 0,100% 0,100% 90%,0 100%);padding-bottom:30px}.s3{border-radius:70px 70px 18px 18px;padding-top:26px}.s4{background:var(--surface);color:var(--text);border:3px dashed var(--c1);border-radius:16px}.s4 svg{color:var(--c1)}.s4 em{background:var(--c1);color:#fff}.s5{border-radius:90px 18px 90px 18px;padding:24px 26px}.s6{clip-path:polygon(0 12%,12% 0,88% 0,100% 12%,100% 88%,88% 100%,12% 100%,0 88%);padding:28px 24px}.s7{border-radius:18px;border:4px double rgba(255,255,255,.75);outline:3px solid var(--c1);outline-offset:3px}.s8{grid-column:1/-1;flex-direction:row;align-items:center;gap:20px;min-height:150px;border-radius:22px;box-shadow:0 0 0 3px var(--c1),0 0 28px var(--c1)}.s8 svg{width:96px;height:96px;flex:none}.s8 em{display:inline-block;margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="logo" href="#inicio">🛡️ Guardianes de la Red</a>
+    <nav>
+      <a href="#inicio">Inicio</a><a href="#historia">Historia</a><a href="#mapa">Mapa</a>
+      <a href="#misiones">Misiones</a><a href="#avatares">Avatares</a><a href="#escuadrones">Escuadrones</a><a href="#rangos">Rangos</a><a href="#bitacora">Bitácora</a><a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="inicio">
+  <h1>Agencia Guardianes de la Red</h1>
+  <p>Misión Ciberseguridad: el hacker Phantom Byte ha entrado en la red de la escuela. ¡Te necesitamos, agente!</p>
+  <a class="btn" href="#historia">Unirme a la misión</a>
+</div>
+
+<section id="historia">
+  <h2>Historia</h2>
+  <div class="card">
+    <p style="color:var(--text)">En 1995, la red de la escuela vivía tranquila gracias al trabajo de la Agencia. Pero Phantom Byte aprovechó ese descuido para infiltrarse, robar claves y sembrar bulos, trampas y mensajes falsos por todas partes.</p>
+    <p style="margin-top:10px;color:var(--text)">La Comandante Nova te recluta: forma un escuadrón de 4 agentes, recupera la seguridad de cada zona de la red y asciende de rango, misión a misión, hasta detener a Phantom Byte en la batalla final.</p>
+  </div>
+</section>
+
+<section id="mapa">
+  <h2>Mapa</h2>
+  <div class="map">
+    <div class="tile s1" style="--c1:#0198cd;--c2:#06324a"><span class="n">1</span>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="28" width="36" height="26" rx="5" fill="currentColor"/><path d="M22 28V20a10 10 0 0 1 20 0v8" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="32" cy="39" r="4" fill="rgba(0,0,0,.45)"/><rect x="30" y="41" width="4" height="8" fill="rgba(0,0,0,.45)"/></svg>
+      <h3>La caja fuerte</h3><p>Phantom robó la clave de la sala de servidores.</p><em>Llave Maestra</em></div>
+    <div class="tile s2" style="--c1:#7b1fa2;--c2:#3a1055"><span class="n">2</span>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="27" cy="27" r="14" fill="none" stroke="currentColor" stroke-width="5"/><path d="M37 37l17 17" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="22" cy="24" r="3" fill="currentColor"/><circle cx="31" cy="31" r="3" fill="currentColor"/></svg>
+      <h3>Los rastros del hacker</h3><p>Sigue las huellas digitales que dejó.</p><em>Rastreador</em></div>
+    <div class="tile s3" style="--c1:#2e7d32;--c2:#0f3d14"><span class="n">3</span>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5l22 8v19c0 14-10 22-22 26C20 54 10 46 10 32V13z" fill="currentColor"/><path d="M21 32l8 8 15-16" fill="none" stroke="rgba(0,0,0,.45)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Blindar el cuartel</h3><p>Protege las cuentas con la privacidad bien configurada.</p><em>Escudo Privado</em></div>
+    <div class="tile s4" style="--c1:#d84315;--c2:#7a1f00"><span class="n" style="color:var(--c1)">4</span>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="14" width="38" height="28" rx="4" fill="currentColor"/><path d="M6 17l19 14 19-14" fill="none" stroke="rgba(0,0,0,.4)" stroke-width="3"/><path d="M52 28v18a8 8 0 0 1-16 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+      <h3>Cazadores de anzuelos</h3><p>Intercepta los mensajes trampa antes de picar.</p><em>Cazador de Anzuelos</em></div>
+    <div class="tile s5" style="--c1:#e91e63;--c2:#7c0a35"><span class="n">5</span>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="18" r="8" fill="currentColor"/><circle cx="13" cy="26" r="6" fill="currentColor"/><circle cx="51" cy="26" r="6" fill="currentColor"/><path d="M18 52v-8a14 14 0 0 1 28 0v8z" fill="currentColor"/><path d="M2 48v-5a11 11 0 0 1 9-10M62 48v-5a11 11 0 0 0-9-10" fill="none" stroke="currentColor" stroke-width="4"/></svg>
+      <h3>El escudo del equipo</h3><p>Apoya a un agente acosado.</p><em>Aliado Digital</em></div>
+    <div class="tile s6" style="--c1:#00897b;--c2:#004d40"><span class="n">6</span>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="6" width="32" height="42" rx="4" fill="currentColor"/><path d="M19 16h18M19 24h18M19 32h10" stroke="rgba(0,0,0,.4)" stroke-width="3" stroke-linecap="round"/><circle cx="44" cy="44" r="12" fill="currentColor" stroke="rgba(0,0,0,.45)" stroke-width="3"/><path d="M38 44l4 4 8-9" fill="none" stroke="rgba(0,0,0,.55)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Verificadores</h3><p>Desmonta los bulos de Phantom.</p><em>Verificador</em></div>
+    <div class="tile s7" style="--c1:#ef8f00;--c2:#8a4500"><span class="n">7</span>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5l8 17 19 2-14 13 4 19-17-10-17 10 4-19L5 24l19-2z" fill="currentColor"/></svg>
+      <h3>Entrenamiento de élite</h3><p>Duelos relámpago para preparar la batalla final.</p><em>Ranking semanal</em></div>
+    <div class="tile s8" style="--c1:#8b5cf6;--c2:#111827">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 58V30C10 14 20 5 32 5s22 9 22 25v28l-8-6-7 6-7-6-7 6-7-6z" fill="#0b0f1a" stroke="#8b5cf6" stroke-width="2.5"/><rect x="20" y="26" width="9" height="6" rx="2" fill="#3cc3f0"/><rect x="35" y="26" width="9" height="6" rx="2" fill="#3cc3f0"/></svg>
+      <div><h3>Batalla final contra Phantom Byte</h3><p>Reto integrador de los seis contenidos, ceremonia y graduación.</p><em>Certificado «Guardián de la Red»</em></div></div>
+  </div>
+</section>
+
+<section id="misiones">
+  <h2>Misiones</h2>
+  <div class="cols">
+    <div class="card"><div class="big">🔑</div><h3>Misión 1 · La caja fuerte</h3><p>Contraseñas y autenticación. Crea 3 claves seguras.</p><span class="tag">Llave Maestra · +50 XP</span></div>
+    <div class="card"><div class="big">🔍</div><h3>Misión 2 · Los rastros del hacker</h3><p>Huella e identidad digital. Rastrea las pistas con las cartas de evidencia.</p><span class="tag">Rastreador · +50 XP</span></div>
+    <div class="card"><div class="big">🛡️</div><h3>Misión 3 · Blindar el cuartel</h3><p>Privacidad en redes. Protege las cuentas en el simulador.</p><span class="tag">Escudo Privado · +50 XP</span></div>
+    <div class="card"><div class="big">🎣</div><h3>Misión 4 · Cazadores de anzuelos</h3><p>Phishing, fraudes y malware. Intercepta los mensajes trampa.</p><span class="tag">Cazador de Anzuelos · +50 XP</span></div>
+    <div class="card"><div class="big">🤝</div><h3>Misión 5 · El escudo del equipo</h3><p>Ciberacoso y netiqueta. Apoya a un agente acosado.</p><span class="tag">Aliado Digital · +50 XP</span></div>
+    <div class="card"><div class="big">✅</div><h3>Misión 6 · Verificadores</h3><p>Desinformación y fuentes. Desmonta los bulos de Phantom.</p><span class="tag">Verificador · +50 XP</span></div>
+  </div>
+</section>
+
+<section id="rangos">
+  <h2>Rangos</h2>
+  <div class="cols">
+    <div class="card rank"><strong>Novato</strong>0 – 199 XP</div>
+    <div class="card rank"><strong>Agente</strong>200 – 449 XP</div>
+    <div class="card rank"><strong>Élite</strong>450 XP o más</div>
+  </div>
+  <p style="color:var(--muted);margin-top:14px">Gana XP con misiones (50), retos extra (25), trabajo en equipo (+25), misiones secretas (75) y la batalla final (100). Canjea tus monedas BIT en la tienda: pista extra (20), avatar nuevo (25), elegir rol (30), segundo intento (40) y carta de poder (50). Los puntos motivan, pero no sustituyen la nota.</p>
+</section>
+
+<section id="avatares">
+  <h2>Avatares</h2>
+  <div class="card av">
+    <div style="text-align:center">
+      <svg id="av" viewBox="0 0 120 150" width="160" height="200" role="img" aria-label="Tu avatar de agente">
+        <path id="avBody" d="M18 150 Q18 96 60 96 Q102 96 102 150Z"/>
+        <text x="60" y="130" text-anchor="middle" font-size="18">🛡️</text>
+        <circle id="avHead" cx="60" cy="58" r="30"/>
+        <circle cx="50" cy="56" r="3" fill="#222"/><circle cx="70" cy="56" r="3" fill="#222"/>
+        <path d="M49 70 Q60 79 71 70" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <text id="avAcc" x="60" text-anchor="middle"></text>
+      </svg>
+      <div id="avName" style="font-weight:700">Agente sin nombre</div>
+    </div>
+    <div class="ctl">
+      <h3>Nombre de agente</h3><input id="avIn" maxlength="20" placeholder="Escribe tu nombre en clave">
+      <h3>Uniforme</h3><div class="opts" id="optSuit"></div>
+      <h3>Tono de piel</h3><div class="opts" id="optSkin"></div>
+      <h3>Accesorio</h3><div class="opts" id="optAcc"></div>
+    </div>
+  </div>
+</section>
+
+<section id="escuadrones">
+  <h2>Escuadrones y ranking</h2>
+  <div class="card">
+    <div class="frm">
+      <div><label for="sqN">Nombre del escuadrón</label><input id="sqN" maxlength="24"></div>
+      <div><label for="sqL">Lema</label><input id="sqL" maxlength="40"></div>
+      <button class="go" id="sqAdd" type="button">Crear escuadrón</button>
+    </div>
+    <div class="tw"><table><thead><tr><th>#</th><th>Escuadrón</th><th>XP</th><th>Rango</th><th></th></tr></thead><tbody id="sqBody"></tbody></table></div>
+    <p id="sqEmpty" style="color:var(--muted)">Aún no hay escuadrones. Crea el primero con 4 agentes.</p>
+  </div>
+</section>
+
+<section id="bitacora">
+  <h2>Bitácora del agente</h2>
+  <div class="card">
+    <div class="frm">
+      <div><label for="btM">Misión</label><select id="btM"><option>Misión 1 · La caja fuerte</option><option>Misión 2 · Los rastros del hacker</option><option>Misión 3 · Blindar el cuartel</option><option>Misión 4 · Cazadores de anzuelos</option><option>Misión 5 · El escudo del equipo</option><option>Misión 6 · Verificadores</option><option>Batalla final</option></select></div>
+    </div>
+    <label for="btT">¿Qué aprendiste y cómo lo aplicarás?</label>
+    <textarea id="btT" rows="3"></textarea>
+    <p><button class="go" id="btAdd" type="button">Guardar entrada</button></p>
+    <div id="btList"></div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <p><b>Contacto</b> · Área TIC, Escuela Graciela Sieron</p>
+  <p>Proyecto integrador de gamificación: «Seguridad y ciudadanía digital».</p>
+  <p>Estructura inspirada en el sitio Mario E-School.</p>
+</footer>
+<script>
+const $=s=>document.querySelector(s);
+function load(k,d){try{const v=localStorage.getItem('gdr:'+k);return v?JSON.parse(v):d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem('gdr:'+k,JSON.stringify(v))}catch(e){}}
+const skins=['#f9d5b8','#e8b48a','#c68b5c','#8d5a3b','#5a3825'],suits=['#0198cd','#2e7d32','#7b1fa2','#d84315'];
+const accs=[['Ninguno','',0,0],['Gafas','🕶️',64,30],['Auriculares','🎧',54,46],['Gorra','🧢',36,42]];
+const av=Object.assign({skin:1,suit:0,acc:0,name:''},load('av',{}));
+function opts(id,arr,key,label){const box=$(id);arr.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.dataset.k=key;b.dataset.i=i;if(label){b.className='pill';b.textContent=c[0]}else{b.className='sw';b.style.background=c;b.setAttribute('aria-label','Opción '+(i+1))}b.onclick=()=>{av[key]=i;drawAv()};box.appendChild(b)})}
+function drawAv(){$('#avBody').setAttribute('fill',suits[av.suit]);$('#avHead').setAttribute('fill',skins[av.skin]);const a=accs[av.acc],t=$('#avAcc');t.textContent=a[1];t.setAttribute('y',a[2]);t.setAttribute('font-size',a[3]);$('#avName').textContent=av.name||'Agente sin nombre';document.querySelectorAll('[data-k]').forEach(b=>b.classList.toggle('on',av[b.dataset.k]==b.dataset.i));save('av',av)}
+opts('#optSuit',suits,'suit');opts('#optSkin',skins,'skin');opts('#optAcc',accs,'acc',true);
+$('#avIn').value=av.name;$('#avIn').oninput=e=>{av.name=e.target.value;drawAv()};drawAv();
+let sq=load('sq',[]);const rank=x=>x>=450?'Élite':x>=200?'Agente':'Novato';
+function cell(tr,txt){const td=document.createElement('td');td.textContent=txt;tr.appendChild(td);return td}
+function drawSq(){const b=$('#sqBody');b.innerHTML='';sq.sort((x,y)=>y.xp-x.xp).forEach((s,i)=>{const tr=document.createElement('tr');cell(tr,i+1);cell(tr,s.l?s.n+' · «'+s.l+'»':s.n);cell(tr,s.xp);cell(tr,rank(s.xp));const td=cell(tr,'');const bt=document.createElement('button');bt.type='button';bt.className='pill';bt.textContent='+50 XP';bt.onclick=()=>{s.xp+=50;drawSq()};td.appendChild(bt);b.appendChild(tr)});$('#sqEmpty').hidden=sq.length>0;save('sq',sq)}
+$('#sqAdd').onclick=()=>{const n=$('#sqN').value.trim();if(!n)return;sq.push({n:n,l:$('#sqL').value.trim(),xp:0});$('#sqN').value='';$('#sqL').value='';drawSq()};drawSq();
+let bt=load('bt',[]);
+function drawBt(){const l=$('#btList');l.innerHTML='';bt.slice().reverse().forEach(e=>{const d=document.createElement('div');d.className='ent';const s=document.createElement('small');s.textContent=e.m+' · '+e.d;const p=document.createElement('div');p.textContent=e.t;d.append(s,p);l.appendChild(d)});save('bt',bt)}
+$('#btAdd').onclick=()=>{const t=$('#btT').value.trim();if(!t)return;bt.push({m:$('#btM').value,t:t,d:new Date().toLocaleDateString('es')});$('#btT').value='';drawBt()};drawBt();
+</script>
+</body>
+</html>
